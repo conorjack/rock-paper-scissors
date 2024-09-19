@@ -1,6 +1,7 @@
 console.log("Hello World!");
 
 // Computer Choice
+
 // Create array of three options
 const option = [
     "Rock",
@@ -12,10 +13,10 @@ const option = [
 function getComputerChoice(min, max) {
     return option[Math.floor(Math.random() * (max - min + 1)) + min];
 }
+
 // Computer returns randomly rock, paper, or scissors
+console.log(getComputerChoice(0,2)) 
 
-console.log(getComputerChoice(0,2))
 
-// 
 
 // Human choice
