@@ -25,15 +25,15 @@ console.log(getComputerChoice(0,2))
 let getHumanChoice = prompt("Choose Rock, Paper, or Scissors");
 
 function verifyInput(choice) {
+    // If valid, display
     if (choice === 'Rock' || choice === 'Paper' || choice === 'Scissors') {
         return console.log(choice);
     } else {
+        // If not valid, have player re-enter until valid
         return prompt("Choose Rock, Paper, or Scissors");
     }
 }
 
+// verify and then display choice
 verifyInput(getHumanChoice);
 
-// If valid, display
-// If not valid, have player re-enter until valid
-// Display player input
