@@ -28,7 +28,7 @@ function verifyInput(choice) {
     if (choice === 'Rock' || choice === 'Paper' || choice === 'Scissors') {
         return console.log(choice);
     } else {
-        return console.log("hahaha");
+        return prompt("Choose Rock, Paper, or Scissors");
     }
 }
 
