@@ -14,7 +14,19 @@ function getComputerChoice() {
 }
 // Computer returns randomly rock, paper, or scissors
 // Human choice ***************
-let humanSelection = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
+
+// Select how many rounds user wants to play
+
+let rounds = " ";
+
+function determineRounds() {
+    rounds = parseInt(prompt("How many rounds would you like to play (pick an odd number)?"));
+    if (rounds % 2 === 0) {
+        rounds = parseInt(prompt("How many rounds would you like to play (pick an odd number)?"));
+    }
+}
+
+let humanSelection = " ";
 function getHumanChoice() {
 // Get player input
     // Validate user input
@@ -73,7 +85,8 @@ function playRound() {
 
 // Play a 5 round game
 function playGame() {
-    while (humanScore + computerScore < 5) {
+    determineRounds();
+    while (humanScore + computerScore < rounds) {
         getComputerChoice();
         getHumanChoice();
         determineWinner(computerSelection, humanSelection);
@@ -85,4 +98,33 @@ function playGame() {
     }
 }
 
+let playAgain = " ";
+
+// Announce winner and ask if user wants to play
+function announceWinner() {
+    // Initial playAgain prompt
+    if (computerScore > humanScore) {
+        while (['yes', 'no'].indexOf(playAgain.toLowerCase()) === -1) {
+            return playAgain = prompt("Sorry, you lost this match. Would you like to play again?").toLowerCase();
+        }
+    } else {
+        while (['yes', 'no'].indexOf(playAgain.toLowerCase()) === -1) {
+            return playAgain = prompt("Congrats!! You won this match. Would you like to play again?").toLowerCase()
+        }
+    }
+}
+
+function keepPlaying() {
+    if (playAgain = "yes") {
+        humanScore = 0;
+        computerScore = 0;
+        console.log("Awesome! Let's play again. Starting over with a fresh score.");
+        playGame();
+    } else {
+        console.log("Thanks for playing! See you again soon!")
+    }
+}
+
 playGame();
+announceWinner();
+keepPlaying();
