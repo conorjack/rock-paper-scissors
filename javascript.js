@@ -25,8 +25,6 @@ function getHumanChoice() {
     return console.log("Your Selection: " + humanSelection);
 }
 
-getComputerChoice();
-getHumanChoice();
 
 // Players score variables ******
 // Create variable to capture user score
@@ -57,8 +55,6 @@ function determineWinner(computer, human) {
         return winner = "neither";
     }
 }
-determineWinner(computerSelection, humanSelection);
-console.log(winner);
 
 // Determine and increment score
 function playRound() {
@@ -73,10 +69,20 @@ function playRound() {
     } 
 }
 
-playRound();
 
-// Display current score
-console.log("Your Score: " + humanScore);
-console.log("Computer Score: " + computerScore);
 
 // Play a 5 round game
+function playGame() {
+    while (humanScore + computerScore < 5) {
+        getComputerChoice();
+        getHumanChoice();
+        determineWinner(computerSelection, humanSelection);
+        playRound();
+        // Display current score
+        console.log("Your Score: " + humanScore);
+        console.log("Computer Score: " + computerScore);
+        humanSelection = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
+    }
+}
+
+playGame();
