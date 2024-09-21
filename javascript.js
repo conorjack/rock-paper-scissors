@@ -20,20 +20,14 @@ console.log(getComputerChoice(0,2))
 
 
 // Human choice
+
 // Get player input
+let userChoice = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
 
-let getHumanChoice = prompt("Choose Rock, Paper, or Scissors");
-
-function verifyInput(choice) {
-    // If valid, display
-    if (choice === 'Rock' || choice === 'Paper' || choice === 'Scissors') {
-        return console.log(choice);
-    } else {
-        // If not valid, have player re-enter until valid
-        return prompt("Choose Rock, Paper, or Scissors");
-    }
+// Validate user input
+while (['rock', 'paper', 'scissors'].indexOf(userChoice) === -1) {
+    userChoice = prompt("Please choose only Rock, Paper, or Scissors").toLowerCase();
 }
 
-// verify and then display choice
-verifyInput(getHumanChoice);
-
+// Display valid user input
+console.log(userChoice);
