@@ -61,7 +61,7 @@ determineWinner(computerSelection, humanSelection);
 console.log(winner);
 
 // Determine and increment score
-function determineScore() {
+function playRound() {
     if (winner === "computer") {
         console.log("Sorry, the computer won. Better luck next round...")
         return computerScore++;
@@ -73,10 +73,10 @@ function determineScore() {
     } 
 }
 
-determineScore();
+playRound();
 
 // Display current score
 console.log("Your Score: " + humanScore);
 console.log("Computer Score: " + computerScore);
 
-// Display winner
+// Play a 5 round game
