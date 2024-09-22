@@ -20,10 +20,7 @@ function getComputerChoice() {
 let rounds = " ";
 
 function determineRounds() {
-    rounds = parseInt(prompt("How many rounds would you like to play (pick an odd number)?"));
-    if (rounds % 2 === 0) {
-        rounds = parseInt(prompt("How many rounds would you like to play (pick an odd number)?"));
-    }
+    rounds = parseInt(prompt("How many rounds would you like to play?"));
 }
 
 let humanSelection = " ";
@@ -114,8 +111,7 @@ function keepPlaying() {
 // Play a 5 round game
 function playGame() {
     determineRounds();
-    let totalScore = humanScore + computerScore;
-    while (totalScore <= rounds - 1) {
+    while (humanScore <= rounds / 2 && computerScore <= rounds / 2) {
         humanSelection = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
         getComputerChoice();
         getHumanChoice();
@@ -124,7 +120,6 @@ function playGame() {
         // Display current score
         console.log("Your Score: " + humanScore);
         console.log("Computer Score: " + computerScore);
-        totalScore = humanScore + computerScore;
     }
     announceWinner();
     keepPlaying();
