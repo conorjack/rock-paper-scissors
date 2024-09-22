@@ -82,25 +82,9 @@ function playRound() {
 }
 
 
-
-// Play a 5 round game
-function playGame() {
-    determineRounds();
-    while (humanScore + computerScore < rounds) {
-        getComputerChoice();
-        getHumanChoice();
-        determineWinner(computerSelection, humanSelection);
-        playRound();
-        // Display current score
-        console.log("Your Score: " + humanScore);
-        console.log("Computer Score: " + computerScore);
-        humanSelection = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
-    }
-}
-
+// Announce winner and ask if user wants to play
 let playAgain = " ";
 
-// Announce winner and ask if user wants to play
 function announceWinner() {
     // Initial playAgain prompt
     if (computerScore > humanScore) {
@@ -115,16 +99,35 @@ function announceWinner() {
 }
 
 function keepPlaying() {
-    if (playAgain = "yes") {
+    if (playAgain === "yes") {
         humanScore = 0;
         computerScore = 0;
         console.log("Awesome! Let's play again. Starting over with a fresh score.");
+        playAgain = " ";
         playGame();
     } else {
+        playAgain = " ";
         console.log("Thanks for playing! See you again soon!")
     }
 }
 
+// Play a 5 round game
+function playGame() {
+    determineRounds();
+    let totalScore = humanScore + computerScore;
+    while (totalScore <= rounds - 1) {
+        humanSelection = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
+        getComputerChoice();
+        getHumanChoice();
+        determineWinner(computerSelection, humanSelection);
+        playRound();
+        // Display current score
+        console.log("Your Score: " + humanScore);
+        console.log("Computer Score: " + computerScore);
+        totalScore = humanScore + computerScore;
+    }
+    announceWinner();
+    keepPlaying();
+}
+
 playGame();
-announceWinner();
-keepPlaying();
